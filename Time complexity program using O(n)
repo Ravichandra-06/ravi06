@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <time.h>
+
+int main() {
+    long n, i;
+    clock_t start, end;
+    double time_taken;
+
+    printf("Enter input size (n) for O(n) program: ");
+    scanf("%ld", &n);
+
+    start = clock();
+
+    for(i = 0; i < n; i++) {
+        long x = i * 2;
+    }
+
+    end = clock();
+    time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+
+    printf("O(n) operation executed in %f seconds\n", time_taken);
+
+    return 0;
+}
