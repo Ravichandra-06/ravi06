@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+    int score = 100;
+
+    int *ptr_score = &score;
+
+    printf("Initial value of score: %d\n", score);
+
+    *ptr_score = 95; 
+
+    printf("Value of score after changing it via the pointer: %d\n", score);
+    
+    return 0;
+}
