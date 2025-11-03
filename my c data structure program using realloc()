@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    long n, i;
+    long *ptr;
+
+    printf("Enter initial number of elements: ");
+    scanf("%ld", &n);
+
+    ptr = (long*) malloc(n * sizeof(long));
+    if(ptr == NULL) {
+        printf("Memory not allocated.\n");
+        return 1;
+    }
+
+    printf("Enter %ld integers:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%ld", &ptr[i]);
+    }
+
+    long new_size;
+    printf("Enter new size of array: ");
+    scanf("%ld", &new_size);
+
+    ptr = (long*) realloc(ptr, new_size * sizeof(long));
+    if(ptr == NULL) {
+        printf("Memory reallocation failed.\n");
+        return 1;
+    }
+
+    if(new_size > n) {
+        printf("Enter %ld more integers:\n", new_size - n);
+        for(i = n; i < new_size; i++) {
+            scanf("%ld", &ptr[i]);
+        }
+    }
+
+    printf("Array elements: ");
+    for(i = 0; i < new_size; i++) {
+        printf("%ld ", ptr[i]);
+    }
+    printf("\n");
+
+    free(ptr);
+
+    return 0;
+}
